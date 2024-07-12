@@ -84,7 +84,7 @@ public class ServicePelicula {
 				+ "VALUES (?,?,?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 	    ps.setString(1, pelicula.getTitulo());
-	    ps.setDate(2, Date.valueOf(pelicula.getFecha_estreno())); // Asumiendo que getFechaEstreno() devuelve un LocalDate
+	    ps.setDate(2, Date.valueOf(pelicula.getFecha_estreno())); 
 	    ps.setString(3, pelicula.getGenero());
 	    ps.setInt(4, pelicula.getDuracion());
 	    ps.setString(5, pelicula.getDirector());
@@ -92,10 +92,10 @@ public class ServicePelicula {
 	    ps.setString(7, pelicula.getSinopsis());
 	    ps.setString(8, pelicula.getPoster());
 	    
-	    ps.executeUpdate(); // Ejecuta la actualización
+	    ps.executeUpdate(); 
 	    
-	    ps.close(); // Cierra el PreparedStatement
-	    con.close(); // Cierra la conexión
+	    ps.close(); 
+	    con.close(); 
 	}
 	
 	// ELIMINAR PELICULA
@@ -106,10 +106,10 @@ public class ServicePelicula {
 	    
 	    ps.setInt(1, id); // Asigna el ID de la película a eliminar
 	    
-	    ps.executeUpdate(); // Ejecuta la actualización
+	    ps.executeUpdate(); 
 	    
-	    ps.close(); // Cierra el PreparedStatement
-	    con.close(); // Cierra la conexión
+	    ps.close(); 
+	    con.close(); 
 	}
 	
 	public void updatePelicula (Pelicula pelicula) throws SQLException, ClassNotFoundException
@@ -118,7 +118,7 @@ public class ServicePelicula {
 		String sql = "UPDATE peliculas SET titulo = ?, fecha_estreno = ?, genero = ?, duracion = ?, director = ?, reparto = ?, sinopsis = ?, poster = ? WHERE id = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, pelicula.getTitulo());
-	    ps.setDate(2, Date.valueOf(pelicula.getFecha_estreno())); // Asumiendo que getFechaEstreno() devuelve un LocalDate
+	    ps.setDate(2, Date.valueOf(pelicula.getFecha_estreno())); 
 	    ps.setString(3, pelicula.getGenero());
 	    ps.setInt(4, pelicula.getDuracion());
 	    ps.setString(5, pelicula.getDirector());
@@ -128,8 +128,6 @@ public class ServicePelicula {
 	    ps.setInt(9, pelicula.getId());
 	    ps.executeUpdate();
 	    
-	    //Supuestamente esto no es necesario
-	    // Cierra automaticamente
 	    ps.close();
 	    con.close();
 	}

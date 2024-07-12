@@ -12,7 +12,8 @@ public class Conexion {
 	{
 	Connection conexion = null;
 	try {
-		Class.forName(driver);		conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/cac_movies_bogado", "root", "");
+		Class.forName(driver);		
+		conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/cac_movies_bogado", "root", "");
 
 		
 	} catch(SQLException e) {

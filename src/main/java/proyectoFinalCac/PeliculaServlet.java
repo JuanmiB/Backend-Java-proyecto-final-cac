@@ -27,7 +27,7 @@ public class PeliculaServlet extends HttpServlet {
         servicePelicula = new ServicePelicula();
         objectMapper = new ObjectMapper();
         
-     // Registrar el módulo JavaTimeModule
+     // Registrar el módulo JavaTimeModule ---> IMPORTANTE
         objectMapper.registerModule(new JavaTimeModule());
     }
     
@@ -57,10 +57,10 @@ public class PeliculaServlet extends HttpServlet {
                             resp.sendError(HttpServletResponse.SC_NOT_FOUND, "Pelicula no encontrada");
                         }
                     } catch (NumberFormatException e) {
-                        resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID inválido");
+                        resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID no valido");
                     }
                 } else {
-                    resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Ruta inválida");
+                    resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Ruta no valida");
                 }
             }
         } catch (SQLException | ClassNotFoundException e) {
@@ -87,6 +87,7 @@ public class PeliculaServlet extends HttpServlet {
         } catch (IOException e) {
             resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error de entrada/salida: " + e.getMessage());
         }
+    	//TODO: buscar output de posibles errores
   
     		}
 
